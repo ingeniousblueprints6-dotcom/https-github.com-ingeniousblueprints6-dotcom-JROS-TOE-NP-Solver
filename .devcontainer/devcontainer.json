@@ -1,0 +1,60 @@
+{
+  "name": "JROS-TOE Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance"
+      ]
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt",
+  "forwardPorts": [],
+  "remoteUser": "vscode"
+
+ main.py
+import networkx as nx
+import itertools
+import math
+from collections import Counter
+
+def is_valid_coloring(coloring, graph):
+    for node in graph:
+        for neighbor in graph[node]:
+            if coloring[node] == coloring[neighbor]:
+                return False
+    return True
+
+def shannon_entropy(coloring):
+    total = len(coloring.values())
+    freq = Counter(coloring.values())
+    entropy = 0
+    for count in freq.values():
+        p = count / total
+        entropy -= p * math.log2(p)
+    return round(entropy, 4)
+
+# Example Graph
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'C'],
+    'C': ['A', 'B']
+}
+
+colors = ['R', 'G', 'B']
+nodes = list(graph.keys())
+
+best_entropy = 0
+best_solution = None
+
+for coloring_tuple in itertools.product(colors, repeat=len(nodes)):
+    coloring = dict(zip(nodes, coloring_tuple))
+    if is_valid_coloring(coloring, graph):
+        entropy = shannon_entropy(coloring)
+        if entropy > best_entropy:
+            best_entropy = entropy
+            best_solution = coloring
+
+print("Best Coloring:", best_solution)
+print("Entropy:", best_entropy, "bits")
