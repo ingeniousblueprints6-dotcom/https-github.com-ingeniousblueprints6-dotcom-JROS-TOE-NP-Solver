@@ -1,4 +1,4 @@
-# JROS-TOE: Symbolic Entropy Framework for NP-Complete Problems
+';# JROS-TOE: Symbolic Entropy Framework for NP-Complete Problems
 
 ## 📌 Overview
 **JROS-TOE** (Jayram's Reality Operating System — Theory of Everything) is a novel symbolic computation framework that integrates:
@@ -36,3 +36,14 @@ graph = {
 colors = ['R', 'G', 'B']
 result = graph_coloring_entropy(graph, colors)
 print(result)
+patent pending
+cff-version: 1.2.0
+message: "If you use this software, please cite the following:"
+authors:
+  - family-names: Chowrasiya
+    given-names: Jayram
+title: "JROS–TOE: Entropy-Guided Symbolic Collapse for NP-Complete Problems"
+version: "v1.0.0"
+date-released: 2025-08-13
+url: "https://github.com/ingeniousblueprints6-dotcom/JROS-TOE-NP-Solver"
+license: MIT patent pending
