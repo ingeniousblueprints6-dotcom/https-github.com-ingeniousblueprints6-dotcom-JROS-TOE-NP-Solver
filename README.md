@@ -46,4 +46,4 @@ title: "JROS–TOE: Entropy-Guided Symbolic Collapse for NP-Complete Problems"
 version: "v1.0.0"
 date-released: 2025-08-13
 url: "https://github.com/ingeniousblueprints6-dotcom/JROS-TOE-NP-Solver"
-license: MIT patent pending
+license: patent pending in Indian patent office
